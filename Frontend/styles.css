@@ -23,6 +23,7 @@
     position: fixed;
     z-index: 1;
     top: 0;
+    
   }
   #top{
     display: flex;
@@ -168,10 +169,12 @@
     margin: 30px;
     display: flex;
     justify-content: space-evenly;
+    gap: 10px;
   }
   #pro4 div{
     width: 30%;
-    
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
     text-align: center;
   }
   #pro4 div img{
@@ -180,6 +183,63 @@
   #pro5 div img{
     width: 100%;
   }
+  #pro6{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+    padding: 20px;
+    margin: 30px;
+     display: flex;
+     justify-content: space-evenly;
+   
+   }
+   #pro6 div{
+     width: 30%;
+     
+     text-align: center;
+   }
+   #pro6 div img{
+     width: 100%;
+   }
+   #footer{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    margin-top: 10px;
+   }
+   #footer> div >div{
+    border: 4px solid white;
+    width: 60%;
+    text-align: center;
+    padding: 5px;
+    margin: 40px 0;
+   }
+   #footer> div >div:last-child{
+    border: none;
+    width: 60%;
+    text-align: center;
+    padding: 5px;
+    margin: 40px 0;
+   }
+  /* #ls{
+    width: 100px;
+    
+  }
+  #ls>div:first-child{
+    display: flex;
+    width: 50%;
+  }
+  #ls>div>img{
+    width: 10%;
+  } */
+  #ls1{
+    display: flex;
+    margin: 20px 0;
+    gap: 5px;
+  }
+   #ls1 img{
+width: 40px;
+   }
   @media screen and (max-width: 768px) {
     #main{
       width: 100%;
@@ -261,6 +321,46 @@
     }
     #pro3 div img{
       width: 100%;
+    }
+    #pro4{
+    
+      padding: 20px;
+      margin: 30px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap :10px;
+    }
+    #pro4 div{
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+      width: 100%;
+      color: black;
+      
+      border-radius: 30px;
+      text-align: center;
+    }
+    #pro4 div img{
+      width: 100%;
+    }
+    #pro6{
+      /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  */
+      padding: 20px;
+      margin: 30px;
+      display: grid;
+      grid-template-columns: repeat(1,1fr);
+      gap :10px;
+    }
+    #pro6 div{
+      width: 100%;
+      color: black;
+      text-align: center;
+    }
+    #pro6 div img{
+      width: 100%;
+    }
+    #footer{
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
     }
   }
   

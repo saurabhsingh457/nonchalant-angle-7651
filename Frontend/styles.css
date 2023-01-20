@@ -1,0 +1,366 @@
+/* 
+  최상위부터 하위로 내려가면서 작성하는 것이 중요
+*/
+
+:root {
+    /* --text-color: #f0f4f5; */
+    --background-color:black;
+    --accent-color: #d49466;
+  }
+  
+  body {
+    margin: 0; /* 테두리 space 제거 */
+    font-family: "Source Sans Pro";
+    padding: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--text-color);
+  }
+  #main{
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    
+  }
+  #top{
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+    padding: 10px 20px;
+    color: white;
+    background-color: black;
+    /* position: fixed; */
+    /* border: 1px solid white; */
+    }
+    #line{
+      border: 1px solid white;
+    }
+  .navbar {
+    display: flex;
+    flex-wrap: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--background-color);
+    padding: 8px 12px;
+  }
+  
+  .navbar__logo {
+  
+    font-size: 24px;
+    color: var(--text-color);
+  }
+  .navbar__logo a img{
+    width: 120px;
+    height: 60px;
+  }
+  .navbar__logo i {
+    color: var(--accent-color);
+  }
+  
+  .navbar__menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    color: white;
+  }
+  
+  .navbar__menu li:hover {
+    background-color: var(--accent-color);
+    border-radius: 4px;
+  }
+  
+  .navbar__menu li {
+    padding: 8px 12px;
+  }
+  
+  .navbar__icons {
+    list-style: none;
+    color: var(--text-color);
+    display: flex;
+    padding-left: 0px;
+  }
+  
+  .navbar__icons li {
+    padding: 12px 12px;
+  }
+  
+  .navbar__toggleBtn {
+    display: none;
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: var(--accent-color);
+  }
+  .navbar__icons li img{
+    height: 40px;
+    border-radius: 50px;
+  }
+  .navbar__icons li input:first-child{
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  #sec{
+    margin: 10px;
+    margin-top: 180px;
+    display: flex; 
+    background-color: antiquewhite;
+  }
+ #sec>div{
+  width: 50%;
+  
+  
+ }
+ #sec>div:first-child{
+  text-align: left;
+  padding-top: 140px;
+  padding-left: 100px;
+ }
+  #sec >div>img{
+    width:100%;
+    height: 100%;
+  }
+  #pro{
+    margin: 20px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  #pro div{
+    width: 15%;
+    color: black;
+    text-align: center;
+  }
+  #pro div img{
+    width: 100%;
+  }
+  #pro2{
+    margin: 30px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  #pro2 div{
+    width: 15%;
+    color: black;
+    text-align: center;
+  }
+  #pro2 div img{
+    width: 100%;
+  }
+  #pro3{
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+   padding: 20px;
+   margin: 30px;
+    display: flex;
+    justify-content: space-evenly;
+  
+  }
+  #pro3 div{
+    width: 30%;
+    
+    text-align: center;
+  }
+  #pro3 div img{
+    width: 100%;
+  }
+  #pro4{
+    margin: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+  }
+  #pro4 div{
+    width: 30%;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+    text-align: center;
+  }
+  #pro4 div img{
+    width: 100%;
+  }
+  #pro5 div img{
+    width: 100%;
+  }
+  #pro6{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+    padding: 20px;
+    margin: 30px;
+     display: flex;
+     justify-content: space-evenly;
+   
+   }
+   #pro6 div{
+     width: 30%;
+     
+     text-align: center;
+   }
+   #pro6 div img{
+     width: 100%;
+   }
+   #footer{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    margin-top: 10px;
+   }
+   #footer> div >div{
+    border: 4px solid white;
+    width: 60%;
+    text-align: center;
+    padding: 5px;
+    margin: 40px 0;
+   }
+   #footer> div >div:last-child{
+    border: none;
+    width: 60%;
+    text-align: center;
+    padding: 5px;
+    margin: 40px 0;
+   }
+  /* #ls{
+    width: 100px;
+    
+  }
+  #ls>div:first-child{
+    display: flex;
+    width: 50%;
+  }
+  #ls>div>img{
+    width: 10%;
+  } */
+  #ls1{
+    display: flex;
+    margin: 20px 0;
+    gap: 5px;
+  }
+   #ls1 img{
+width: 40px;
+   }
+  @media screen and (max-width: 768px) {
+    #main{
+      width: 100%;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+    }
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 8px 24px;
+    }
+    .navbar__menu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .navbar__menu li {
+      width: 100%;
+      text-align: center;
+    }
+    .navbar__icons {
+      display: none;
+      justify-content: center;
+      width: 100%;
+    }
+    .navbar__toggleBtn {
+      display: block;
+    }
+    .navbar__menu.active,
+    .navbar__icons.active {
+      display: flex;
+    }
+    #sec>div:first-child{
+      text-align: left;
+      padding-top: 40px;
+      padding-left: 100px;
+     }
+     #pro{
+      margin: 20px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+    }
+    #pro div{
+      width: 100%;
+      color: black;
+      text-align: center;
+    }
+    #pro div img{
+      width: 100%;
+    }
+    #pro2{
+      margin: 30px;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap :10px;
+    }
+    #pro2 div{
+      width: 100%;
+      color: black;
+      text-align: center;
+    }
+    #pro2 div img{
+      width: 100%;
+    }
+    #pro3{
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+      padding: 20px;
+      margin: 30px;
+      display: grid;
+      grid-template-columns: repeat(1,1fr);
+      gap :10px;
+    }
+    #pro3 div{
+      width: 100%;
+      color: black;
+      text-align: center;
+    }
+    #pro3 div img{
+      width: 100%;
+    }
+    #pro4{
+    
+      padding: 20px;
+      margin: 30px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap :10px;
+    }
+    #pro4 div{
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+      width: 100%;
+      color: black;
+      
+      border-radius: 30px;
+      text-align: center;
+    }
+    #pro4 div img{
+      width: 100%;
+    }
+    #pro6{
+      /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  */
+      padding: 20px;
+      margin: 30px;
+      display: grid;
+      grid-template-columns: repeat(1,1fr);
+      gap :10px;
+    }
+    #pro6 div{
+      width: 100%;
+      color: black;
+      text-align: center;
+    }
+    #pro6 div img{
+      width: 100%;
+    }
+    #footer{
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+    }
+  }
+  

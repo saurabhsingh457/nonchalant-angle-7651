@@ -300,12 +300,12 @@
         </div> -->
 
     </div>
-    <div id="men">
-<select name="" id="filter">
-    <Option>HIGH TO LOW</Option>
-    <option value="">Low to high</option>
-</select>    
-</div>
+    <div>
+        <select name="" id="sortbycat" onchange="sort()">
+          <option value="low">Price-Low to High</option>
+          <option value="high">Price-High to Low</option>
+        </select>
+      </div>
 
     <div id="footer">
         <div>
@@ -637,6 +637,28 @@ let data = [
 
     }
 ]
+
+
+var p = document.querySelector(".products");
+  console.log(p);
+  document.querySelector("#sortbycat").addEventListener("change",function(){
+    var selected = document.querySelector("#sortbycat").value;
+    if (selected == "low") {
+        data.sort(function (a, b) {
+        return parseInt(a.h3) - parseInt(b.h3);
+      });
+    }
+    if (selected == "high") {
+        let k=parseInt(h3)
+        data.sort(function (a, b) {
+        return parseInt(b.h3) - parseInt(a.h3);
+      });
+    }
+    display(data);
+  })
+
+
+
 for(let i=0;i<data.length;i++){
     let div1=document.createElement("div");
     let img=document.createElement("img");

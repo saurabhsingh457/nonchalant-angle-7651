@@ -306,6 +306,7 @@
           <option value="high">Price-High to Low</option>
         </select>
       </div>
+      <button id="oo">00</button>
 
     <div id="footer">
         <div>
@@ -639,27 +640,35 @@ let data = [
 ]
 
 
-var p = document.querySelector(".products");
-  console.log(p);
+
   document.querySelector("#sortbycat").addEventListener("change",function(){
     var selected = document.querySelector("#sortbycat").value;
     if (selected == "low") {
         data.sort(function (a, b) {
-        return parseInt(a.h3) - parseInt(b.h3);
+        return (a.h3) - (b.h3);
       });
     }
     if (selected == "high") {
         let k=parseInt(h3)
         data.sort(function (a, b) {
-        return parseInt(b.h3) - parseInt(a.h3);
+        return (b.h3) - (a.h3);
       });
     }
-    display(data);
+    displayData(data);
+   
   })
 
+// document.querySelector("#oo").addEventListener("click",function(){
+//     // document.querySelector("#ok").innerHTML=null
+//      data.sort(function(a,b){
+//         return a.img-b.img
+//     })
+    
 
+// })
 
-for(let i=0;i<data.length;i++){
+function displayData(data){
+    for(let i=0;i<data.length;i++){
     let div1=document.createElement("div");
     let img=document.createElement("img");
     let h2=document.createElement("h2")
@@ -678,9 +687,12 @@ for(let i=0;i<data.length;i++){
     })
     document.querySelector("#ok").append(div1)
   }
+ 
   function addData(key,value){
     let newData=JSON.parse(localStorage.getItem(key)) || []
     newData.push(value)
     localStorage.setItem(key,JSON.stringify(newData))
   }
+}
+displayData(data)
 </script>

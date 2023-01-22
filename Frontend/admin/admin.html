@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+table tr:nth-child(even) {
+  background-color: #8caacf;
+}
+
+table tr:hover {
+  background-color: #ddd;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0468aa;
+  color: white;
+  text-align: center;
+}
+
+        body{
+            background-color: rgb(152, 222, 218);
+        }
+        #main{
+            width: 30%;
+            margin: auto;
+            margin-top:40px ;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+        form label{
+            margin-top: 10px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        form input ,form select{
+            margin-top: 5px;
+            border-radius: 5px;
+            background-color: rgb(214, 189, 157);
+            height: 30px;
+        }
+        form input:last-child{
+            margin-top: 20px;
+            background-color: rgba(118, 16, 228, 0.83);
+        }
+    </style>
+</head>
+<body>
+  <h1><a href="../index.html">Home</a></h1>
+  <h1><a href="./data.html">Product Detail</a></h1>
+  <h1><a href="./admin.html">Users Detail</a></h1>
+  <!--  -->
+    <div id="main">
+        <form action="" id="notes">
+           <h1>Users Detail</h1>
+            <input type="submit">
+            
+        </form>
+    </div>
+    <table>
+      <thead>
+        <tr>
+            <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Gender</th>
+          <th> Password</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+       <!-- Update the rows here using jsvascript -->
+      </tbody>
+    </table>
+</body>
+</html>
+<!-- <script src="./route/user.route.js"></script> -->
+<script>
+  let token=localStorage.getItem("token")
+ const notes = document.querySelector("#notes");
+notes.addEventListener("submit",notesFunction);
+
+// Make API request to server for notesing the new user.
+async function notesFunction(event) {
+  if(token){
+  
+  try {
+    event.preventDefault();
+    let all_input_tags = document.querySelectorAll("#notes input");
+    
+    let notes_request = await fetch("http://localhost:4500/users/get", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        // "Authorization":`${token}`
+      }
+      
+    })
+    .then(res=>res.json())
+    .then(data=>  displayNotes(data))
+    .catch(err=>console.log(err))
+//     if(notes_request.ok){
+//         alert(" User has been created ");
+//         // window.location.href = "#tologin";
+//     }else{
+//         alert("Bad request has been made.");
+//     }
+  } catch (error) {
+    alert("Something went wrong. Please try again later.");
+    console.log(error)
+  }
+}else{
+alert("please login first")
+
+}
+}
+
+  function displayNotes(data)   {
+    document.querySelector("tbody").innerText=""
+    data.forEach(function(ele) {
+    let row = document.createElement("tr")
+
+    let td1 =document.createElement("td")
+    td1.innerText =ele._id
+    let td2 =document.createElement("td")
+    td2.innerText = ele.name
+    let td3 =document.createElement("td")
+    td3.innerText = ele.email
+    let td4 =document.createElement("td")
+    td4.innerText = ele.gender
+    let td5 =document.createElement("td")
+    td5.innerText = ele.pass
+    
+   
+
+
+    row.append(td1,td2,td3,td4,td5)
+    document.querySelector("tbody").append(row);
+
+   });
+  }
+        
+
+</script>

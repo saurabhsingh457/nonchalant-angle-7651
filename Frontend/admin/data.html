@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/4a9b76c21b.js" crossorigin="anonymous"></script>
+    <script src="../index.js" defer></script>
+    <title>Your Data</title>
     <style>
       table {
   font-family: Arial, Helvetica, sans-serif;
@@ -23,7 +27,7 @@ table th {
 }
 
 table tr:nth-child(even) {
-  background-color: #8caacf;
+  background-color: #8f969e;
 }
 
 table tr:hover {
@@ -42,10 +46,11 @@ table th {
         body{
             background-color: rgb(220, 234, 233);
         }
-        #main{
+        #mains{
             width: 30%;
             margin: auto;
-            margin-top:40px ;
+           
+            margin-top:240px ;
         }
         form{
             display: flex;
@@ -68,10 +73,41 @@ table th {
     </style>
 </head>
 <body>
-  <h1><a href="../index.html">Home</a></h1>
-  <h1><a href="./data.html">Product Detail</a></h1>
-  <h1><a href="./admin.html">Users Detail</a></h1>
+  
+
   <div id="main">
+    <div id="top">
+      <div><a href="./signUp.html">Sign Up</a></div>
+      <div id="si"><a href="./signIn.html">Sign In</a></div>
+    </div>
+    <div id="line"></div>
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <!-- <i class="fab fa-accusoft"></i> -->
+        <a href=""><img src="http://127.0.0.1:5500/foot%20care%20logo.png" alt=""></a>
+      </div>
+      <ul class="navbar__menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./signIn.html">Admin SignIn</a></li>
+        <li><a href="./data.html">Products Detail</a></li>
+        <li><a href="./admin.html">Users Detail</a></li>
+        <li><a href="./order.html">Total Order</a></li>
+        
+      </ul>
+      <ul class="navbar__icons">
+        <li><input  id="searchs" type="search" value="search.."></li>
+        <li><img src="https://th.bing.com/th/id/OIP.Ov0ON6pFrmANdE1lgGm0ZgHaF5?w=262&h=209&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+            alt=""></li>
+        <li><a href="./cart.html"><img src="https://th.bing.com/th/id/OIP.EPXlW_rWQluPB3-paEnxIwHaHa?w=186&h=186&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+          alt=""></a></li>
+      </ul>
+      <a href="#" class="navbar__toggleBtn">
+        <i class="fas fa-bars"></i>
+      </a>
+    </nav>
+  </div>
+
+  <div id="mains">
     <form action="" id="post">
         <label for="">Image URL</title></label>
         <input id="img" type="text" placeholder="image url">
@@ -87,9 +123,9 @@ table th {
     </form>
 </div>
   <!--  -->
-    <div id="main">
+    <div id="mains">
         <form action="" id="notes">
-           <h1>See your Notes</h1>
+           <h1>See your Products</h1>
             <!-- <input id="get" type="submit"> -->
             <button id="get">submit</button>
             
@@ -128,7 +164,7 @@ async function notesFunction(event) {
     event.preventDefault();
     // let all_input_tags = document.querySelectorAll("#notes input");
     
-    let notes_request = await fetch("http://localhost:4500/posts/getdata", {
+    let notes_request = await fetch("https://tough-jersey-tick.cyclic.app/posts/getdata", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/4a9b76c21b.js" crossorigin="anonymous"></script>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="../styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/4a9b76c21b.js" crossorigin="anonymous"></script>
+    <script src="../index.js" defer></script>
+    <title>Ordered Items</title>
+    <style>
+        body {
+           display: flex;
+            background-color: white;
+        }
+
+        /* html,body{
+    background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+    } */
+        #ok {
+            margin-top: 80px;
+
+        }
+
+        #ok {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+           
+            
+        }
+
+        #ok>div {
+            border: 1px solid black;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: rgb(234, 167, 167);
+
+        }
+
+        #ok>div img {
+            background-color: rgb(145, 172, 195);
+            border-radius: 10px
+        }
+
+        #ok div button {
+            border-radius: 10px;
+            padding: 8px;
+            margin-left: 8px;
+            background-color: burlywood;
+        }
+
+        #high {
+            margin-top: 100px;
+            display: flex;
+            margin-left: 10px;
+            
+    
+        }
+        #high>div{
+            width: 30%;
+        }
+
+        @media screen and (max-width: 768px) {
+            #ok {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+           
+        }
+    </style>
+</head>
+
+<body>
+   
+   <div id="main">
+    <div id="top">
+      <div><a href="./signUp.html">Sign Up</a></div>
+      <div id="si"><a href="./signIn.html">Sign In</a></div>
+    </div>
+    <div id="line"></div>
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <!-- <i class="fab fa-accusoft"></i> -->
+        <a href=""><img src="http://127.0.0.1:5500/foot%20care%20logo.png" alt=""></a>
+      </div>
+      <ul class="navbar__menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./signIn.html">Admin SignIn</a></li>
+        <li><a href="./data.html">Products Detail</a></li>
+        <li><a href="./admin.html">Users Detail</a></li>
+        <li><a href="./order.html">Total Order</a></li>
+        
+      </ul>
+      <ul class="navbar__icons">
+        <li><input  id="searchs" type="search" value="search.."></li>
+        <li><img src="https://th.bing.com/th/id/OIP.Ov0ON6pFrmANdE1lgGm0ZgHaF5?w=262&h=209&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+            alt=""></li>
+        <li><a href="./cart.html"><img src="https://th.bing.com/th/id/OIP.EPXlW_rWQluPB3-paEnxIwHaHa?w=186&h=186&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+          alt=""></a></li>
+      </ul>
+      <a href="#" class="navbar__toggleBtn">
+        <i class="fas fa-bars"></i>
+      </a>
+    </nav>
+  </div>
+   
+    <div id="high">
+        <div>
+            <h1>Total Orderd Items</h1>
+            <div id="ok">
+
+            </div>
+        </div>
+       
+
+
+
+    </div>
+</body>
+
+</html>
+<script>
+
+    let data = JSON.parse(localStorage.getItem("add"));
+    console.log(data)
+    // document.querySelector("h2").innerText = data.length
+
+    let sum = 0;
+
+
+    for (let i = 0; i < data.length; i++) {
+        let div1 = document.createElement("div");
+        let img = document.createElement("img");
+        let h2 = document.createElement("h2")
+        let p = document.createElement("p")
+        let h3 = document.createElement("h3")
+        let butt1 = document.createElement("button")
+        let butt2 = document.createElement("button")
+        let input = document.createElement("input")
+        img.setAttribute("src", data[i].img)
+        h2.innerText = data[i].h2
+        p.innerText = data[i].p
+        h3.innerText = data[i].h3
+        butt2.innerText = "Cancel Order"
+        div1.append(img, h2, p, h3, butt1, butt2)
+        console.log(sum)
+        let j = data[i].h3
+        let y = parseInt(j)
+        sum += y;
+        butt2.addEventListener("click", function (e) {
+            e.preventDefault()
+            event.target.parentNode.remove();
+            data.splice(data.length[i], 1)
+            localStorage.setItem("add", JSON.stringify(data))
+            window.location.reload()
+            alert("Order Cancelled")
+        })
+        document.querySelector("#ok").append(div1)
+    }
+
+   
+
+</script>

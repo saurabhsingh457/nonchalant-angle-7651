@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/4a9b76c21b.js" crossorigin="anonymous"></script>
-    <script src="index.js" defer></script>
-    <title>SihIn User</title>
+    <script src="../index.js" defer></script>
+    <title>SignIn Page</title>
     <!-- Lato Fonts impoting -->
     <!-- Roboto Slab Importing -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -181,15 +181,15 @@
             <a href=""><img src="http://127.0.0.1:5500/foot%20care%20logo.png" alt=""></a>
           </div>
           <ul class="navbar__menu">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./mens.html">Mens's</a></li>
-            <li><a href="./womens.html">Women's</a></li>
-            <li><a href="./kids.html">Kid's</a></li>
-            <li><a href="./clothings.html">CLOTHING</a></li>
-            <li><a href="#">APPAREL</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./signIn.html">Admin SignIn</a></li>
+            <li><a href="./data.html">Products Detail</a></li>
+            <li><a href="./admin.html">Users Detail</a></li>
+            <li><a href="./order.html">Total Order</a></li>
+            
           </ul>
           <ul class="navbar__icons">
-            <li><input type="search" value="search.."></li>
+            <li><input  id="searchs" type="search" value="search.."></li>
             <li><img src="https://th.bing.com/th/id/OIP.Ov0ON6pFrmANdE1lgGm0ZgHaF5?w=262&h=209&c=7&r=0&o=5&dpr=1.3&pid=1.7"
                 alt=""></li>
             <li><a href="./cart.html"><img src="https://th.bing.com/th/id/OIP.EPXlW_rWQluPB3-paEnxIwHaHa?w=186&h=186&c=7&r=0&o=5&dpr=1.3&pid=1.7"
@@ -205,7 +205,7 @@
             <img style="width: 100px;" src="http://127.0.0.1:5500/foot%20care%20logo.png" alt="" />
         </div>
         <div id="head">
-            <h3>SIGN IN</h3>
+            <h3>SIGN IN ADMIN</h3>
         </div>
         <form action="" id="login">
             <!-- <label for="">Email</label> -->
@@ -248,11 +248,9 @@
     let userObj = {
         email,pass
     };
-    if(email=="soni@gmail.com" && pass=="soni"){
-        window.location.href="admin/admin.html"
-    }else{
        console.log(userObj)
-       let login_request = await fetch("https://tough-jersey-tick.cyclic.app/users/login", {
+       if(email=="soni@gmail.com" && pass=="soni"){
+        let login_request = await fetch("https://tough-jersey-tick.cyclic.app/users/login", {
          method: "POST",
          headers: {
            "Content-Type": "application/json",
@@ -267,14 +265,19 @@
        }else if(data=="wrong detail"){
          alert("wrong credential")
        }
-       else if(data) {
+       else{
        alert("login successfully")
-       window.location.href="index.html"
+       window.location.href="admin.html"
+       }
+       
+       })
+       // console.log(data)
+       .catch(err=>console.log(err))
+       }else{
+        alert("you are not authorised to open this")
        }
       
-       })
-       .catch(err=>console.log(err))
-    }
+   //    
      } catch (error) {
        // alert("Something went wrong. Please try again later.");
        console.log(error)

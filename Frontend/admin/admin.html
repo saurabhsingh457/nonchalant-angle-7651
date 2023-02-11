@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/4a9b76c21b.js" crossorigin="anonymous"></script>
+    <script src="../index.js" defer></script>
+    <title>admin side</title>
     <style>
       table {
   font-family: Arial, Helvetica, sans-serif;
@@ -42,10 +46,16 @@ table th {
         body{
             background-color: rgb(152, 222, 218);
         }
-        #main{
+        #mains{
             width: 30%;
             margin: auto;
-            margin-top:40px ;
+            margin-top:190px ;
+            padding: 10px;
+        }
+        #mains input{
+          padding: 5px;
+          border-radius: 10px;
+          width: 70%;
         }
         form{
             display: flex;
@@ -65,14 +75,50 @@ table th {
             margin-top: 20px;
             background-color: rgba(118, 16, 228, 0.83);
         }
+        #adm{
+          border: 4px solid black;
+          background-color: #8caacf;
+          width: 20%;
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
     </style>
 </head>
 <body>
-  <h1><a href="../index.html">Home</a></h1>
-  <h1><a href="./data.html">Product Detail</a></h1>
-  <h1><a href="./admin.html">Users Detail</a></h1>
+
+ <!--  -->
+ <div id="main">
+  <div id="top">
+    <div><a href="./signUp.html">Sign Up</a></div>
+    <div id="si"><a href="./signIn.html">Sign In</a></div>
+  </div>
+  <div id="line"></div>
+  <nav class="navbar">
+    <div class="navbar__logo">
+      <!-- <i class="fab fa-accusoft"></i> -->
+      <a href=""><img src="http://127.0.0.1:5500/foot%20care%20logo.png" alt=""></a>
+    </div>
+    <ul class="navbar__menu">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="./signIn.html">Admin SignIn</a></li>
+      <li><a href="./data.html">Products Detail</a></li>
+      <li><a href="./admin.html">Users Detail</a></li>
+      <li><a href="./order.html">Total Order</a></li>
+      
+    </ul>
+    <ul class="navbar__icons">
+      <li><input  id="searchs" type="search" value="search.."></li>
+      <li><img src="https://th.bing.com/th/id/OIP.Ov0ON6pFrmANdE1lgGm0ZgHaF5?w=262&h=209&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+          alt=""></li>
+      <li><a href="./cart.html"><img src="https://th.bing.com/th/id/OIP.EPXlW_rWQluPB3-paEnxIwHaHa?w=186&h=186&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+        alt=""></a></li>
+    </ul>
+    <a href="#" class="navbar__toggleBtn">
+      <i class="fas fa-bars"></i>
+    </a>
+  </nav>
+</div>
   <!--  -->
-    <div id="main">
+    <div id="mains">
         <form action="" id="notes">
            <h1>Users Detail</h1>
             <input type="submit">
@@ -87,6 +133,7 @@ table th {
           <th>Email</th>
           <th>Gender</th>
           <th> Password</th>
+          <th>Delete</th>
          
         </tr>
       </thead>
@@ -110,7 +157,7 @@ async function notesFunction(event) {
     event.preventDefault();
     let all_input_tags = document.querySelectorAll("#notes input");
     
-    let notes_request = await fetch("http://localhost:4500/users/get", {
+    let notes_request = await fetch("https://tough-jersey-tick.cyclic.app/users/get", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -152,11 +199,20 @@ alert("please login first")
     td4.innerText = ele.gender
     let td5 =document.createElement("td")
     td5.innerText = ele.pass
+    let butt2=document.createElement("button")
+    butt2.innerText = "Delete"
+    butt2.addEventListener("click", function (e) {
+            e.preventDefault()
+            event.target.parentNode.remove();
+            data.splice(data.length[i], 1)
+            localStorage.setItem("add", JSON.stringify(data))
+            window.location.reload()
+        })
     
    
 
 
-    row.append(td1,td2,td3,td4,td5)
+    row.append(td1,td2,td3,td4,td5,butt2)
     document.querySelector("tbody").append(row);
 
    });
